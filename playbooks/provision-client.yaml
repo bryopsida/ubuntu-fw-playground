@@ -1,0 +1,9 @@
+---
+- name: Provision Client
+  hosts: all
+  become: true
+  tasks:
+    - name: Update System
+      ansible.builtin.apt:
+        upgrade: true
+        update_cache: true

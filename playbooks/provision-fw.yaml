@@ -1,0 +1,37 @@
+---
+- name: Provision Firewall
+  hosts: all
+  become: true
+  tasks:
+    - name: Update System
+      ansible.builtin.apt:
+        upgrade: true
+        update_cache: true
+    - name: Install UFW
+      ansible.builtin.apt:
+        package: ufw
+        state: present
+    - name: Install unbound
+      ansible.builtin.apt:
+        package: unbound
+        state: present
+    - name: Install kea
+      ansible.builtin.apt:
+        package: kea
+        state: present
+    - name: Install chrony
+      ansible.builtin.apt:
+        package: chrony
+        state: present
+    - name: Install netflow capture
+      ansible.builtin.apt:
+        package: nfdump
+        state: present
+    - name: Install apparmor
+      ansible.builtin.apt:
+        package: apparmor
+        state: present
+    - name: Install nodejs
+      ansible.builtin.apt:
+        package: nodejs
+        state: present
